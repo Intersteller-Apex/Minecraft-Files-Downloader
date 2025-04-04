@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft Version Downloader</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .version-card {
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .version-card:hover {
+            transform: translateY(-2px);
+        }
+        .progress {
+            display: none;
+            height: 25px;
+        }
+        .download-status {
+            display: none;
+        }
+        .search-box {
+            max-width: 500px;
+            margin: 20px auto;
+        }
+        .version-type-filter {
+            margin: 20px 0;
+        }
+        .version-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .run-instructions {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 40px;
+        }
+        .code-block {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: monospace;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <div class="container py-5">
+        <h1 class="text-center mb-4">Minecraft Version Downloader</h1>
+        
+        <!-- Search box -->
+        <div class="search-box">
+            <input type="text" class="form-control" id="searchInput" placeholder="Search versions...">
+        </div>
+
+        <!-- Version type filter -->
+        <div class="version-type-filter text-center">
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-primary active" data-filter="all">All</button>
+                <button type="button" class="btn btn-primary" data-filter="release">Release</button>
+                <button type="button" class="btn btn-primary" data-filter="snapshot">Snapshot</button>
+                <button type="button" class="btn btn-primary" data-filter="old_beta">Beta</button>
+                <button type="button" class="btn btn-primary" data-filter="old_alpha">Alpha</button>
+            </div>
+        </div>
+
+        <!-- Download progress -->
+        <div class="download-status mt-4">
+            <h4 class="text-center" id="downloadTitle">Downloading...</h4>
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated" 
+                     role="progressbar" 
+                     style="width: 0%">0%</div>
+            </div>
+            <div class="text-center mt-2" id="downloadDetails"></div>
+        </div>
+
+        <!-- Version grid -->
+        <div class="version-grid" id="versionGrid">
+            <!-- Versions will be populated here -->
+        </div>
+
+        <!-- Run Instructions -->
+        <div class="run-instructions">
+            <h2 class="text-center mb-4">How to Run Minecraft</h2>
+            
+            <div class="row">
+                <!-- Windows Instructions -->
+                <div class="col-md-4">
+                    <h3>Windows</h3>
+                    <p>Create a file named <code>run.bat</code> in the extracted folder with:</p>
+                    <div class="code-block">
+                        @echo off<br>
+                        java -Xmx2G -Xms1G -jar client.jar
+                    </div>
+                    <p>Double-click <code>run.bat</code> to start the game.</p>
+                </div>
+
+                <!-- Linux/Mac Instructions -->
+                <div class="col-md-4">
+                    <h3>Linux/Mac</h3>
+                    <p>Create a file named <code>run.sh</code> in the extracted folder with:</p>
+                    <div class="code-block">
+                        #!/bin/bash<br>
+                        java -Xmx2G -Xms1G -jar client.jar
+                    </div>
+                    <p>Make it executable and run:</p>
+                    <div class="code-block">
+                        chmod +x run.sh<br>
+                        ./run.sh
+                    </div>
+                </div>
+
+                <!-- Universal Instructions -->
+                <div class="col-md-4">
+                    <h3>Universal</h3>
+                    <p>Create a file named <code>run.txt</code> with:</p>
+                    <div class="code-block">
+                        java -Xmx2G -Xms1G -jar client.jar
+                    </div>
+                    <p>Save as <code>run.bat</code> (Windows) or <code>run.sh</code> (Linux/Mac)</p>
+                </div>
+            </div>
+
+            <div class="mt-4">
+                <h4>Notes:</h4>
+                <ul>
+                    <li>Make sure you have Java installed (Java 8 or newer)</li>
+                    <li>Adjust <code>-Xmx2G</code> and <code>-Xms1G</code> based on your RAM:
+                        <ul>
+                            <li>2GB RAM: <code>-Xmx1G -Xms512M</code></li>
+                            <li>4GB RAM: <code>-Xmx2G -Xms1G</code></li>
+                            <li>8GB RAM: <code>-Xmx4G -Xms2G</code></li>
+                        </ul>
+                    </li>
+                    <li>You need a valid Minecraft account to play</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
