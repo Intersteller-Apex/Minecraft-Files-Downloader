@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Run Minecraft - Minecraft Version Downloader</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .code-block {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: monospace;
+            margin: 10px 0;
+        }
+        .back-link {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+        }
+        .instruction-section {
+            margin-bottom: 40px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+        }
+        .ram-table {
+            width: 100%;
+            margin: 20px 0;
+        }
+        .ram-table th, .ram-table td {
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <div class="container py-5">
+        <a href="index.html" class="btn btn-primary back-link">← Back to Downloader</a>
+        
+        <h1 class="text-center mb-5">How to Run Minecraft</h1>
+
+        <!-- Prerequisites -->
+        <div class="instruction-section">
+            <h2>Prerequisites</h2>
+            <ul>
+                <li>Java 8 or newer installed on your system</li>
+                <li>A valid Minecraft account</li>
+                <li>The downloaded Minecraft version files (from the downloader)</li>
+            </ul>
+        </div>
+
+        <!-- Windows Instructions -->
+        <div class="instruction-section">
+            <h2>Windows</h2>
+            <ol>
+                <li>Extract the downloaded ZIP file to a folder of your choice</li>
+                <li>Create a new file named <code>run.bat</code> in the extracted folder</li>
+                <li>Open the file with a text editor and paste this code:
+                    <div class="code-block">
+                        @echo off<br>
+                        java -Xmx2G -Xms1G -jar client.jar
+                    </div>
+                </li>
+                <li>Save the file and double-click <code>run.bat</code> to start the game</li>
+            </ol>
+        </div>
+
+        <!-- Linux/Mac Instructions -->
+        <div class="instruction-section">
+            <h2>Linux/Mac</h2>
+            <ol>
+                <li>Extract the downloaded ZIP file to a folder of your choice</li>
+                <li>Create a new file named <code>run.sh</code> in the extracted folder</li>
+                <li>Open the file with a text editor and paste this code:
+                    <div class="code-block">
+                        #!/bin/bash<br>
+                        java -Xmx2G -Xms1G -jar client.jar
+                    </div>
+                </li>
+                <li>Make the file executable:
+                    <div class="code-block">
+                        chmod +x run.sh
+                    </div>
+                </li>
+                <li>Run the game:
+                    <div class="code-block">
+                        ./run.sh
+                    </div>
+                </li>
+            </ol>
+        </div>
+
+        <!-- RAM Settings -->
+        <div class="instruction-section">
+            <h2>RAM Allocation</h2>
+            <p>Adjust the <code>-Xmx</code> and <code>-Xms</code> values based on your system's RAM:</p>
+            <table class="table ram-table">
+                <thead>
+                    <tr>
+                        <th>System RAM</th>
+                        <th>Recommended Settings</th>
+                        <th>Command Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2GB</td>
+                        <td><code>-Xmx1G -Xms512M</code></td>
+                        <td><code>java -Xmx1G -Xms512M -jar client.jar</code></td>
+                    </tr>
+                    <tr>
+                        <td>4GB</td>
+                        <td><code>-Xmx2G -Xms1G</code></td>
+                        <td><code>java -Xmx2G -Xms1G -jar client.jar</code></td>
+                    </tr>
+                    <tr>
+                        <td>8GB</td>
+                        <td><code>-Xmx4G -Xms2G</code></td>
+                        <td><code>java -Xmx4G -Xms2G -jar client.jar</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Troubleshooting -->
+        <div class="instruction-section">
+            <h2>Troubleshooting</h2>
+            <h4>Common Issues:</h4>
+            <ul>
+                <li><strong>Java not found:</strong> Make sure Java is installed and added to your system's PATH</li>
+                <li><strong>Out of memory:</strong> Reduce the <code>-Xmx</code> value if you get memory errors</li>
+                <li><strong>Game won't start:</strong> Try running the command from a terminal/command prompt to see error messages</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 
